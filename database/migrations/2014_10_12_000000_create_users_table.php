@@ -17,11 +17,9 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('full_name');
-            $table->string('public_name')->unique();
-            $table->string('photo_url');
-            $table->boolean('is_developer');
-            $table->unsignedBigInteger('media_id');
+            $table->string('name')->unique();
+            $table->string('photo_url')->nullable();
+            $table->boolean('is_developer')->default(false);
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
