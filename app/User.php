@@ -37,20 +37,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function groups(){ //Creator
+    public function groupsCreated(){ //Creator
         return $this->hasMany('App\Group');
     }
 
-    public function group(){ //Belonger
+    public function groupsBelongTo(){ //Belonger
         return $this->belongsToMany('App\Group');
     }
 
-    public function projects(){ //Creator
+    public function projectsCreated(){ //Creator
         return $this->hasMany('App\Project');
     }
 
-    public function project(){ //Belonger
-        return $this->belongsToMany('App\Project');
+    public function projectsBelongTo(){ //Belonger
+        return $this->belongsToMany('App\Project')->withTimestamps();
     }
 
     public function comments(){

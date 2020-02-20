@@ -10,12 +10,12 @@ class Project extends Model
         return $this->belongsTo('App\Group');
     }
 
-    public function user(){ //Creator
+    public function userCreator(){ //Creator
         return $this->belongsTo('App\User');
     }
 
-    public function users(){ //Belonger
-        return $this->belongsToMany('App\User');
+    public function usersBelongTo(){ //Belonger
+        return $this->belongsToMany('App\User')->withTimestamps();
     }
 
     public function issues(){

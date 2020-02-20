@@ -10,11 +10,11 @@ class Group extends Model
         return $this->hasMany('App\Project');
     }
 
-    public function user(){ //Creator
+    public function userCreator(){ //Creator
         return $this->belongsTo('App\User');
     }
 
-    public function users(){ //Belonger
-        return $this->belongsToMany('App\User');
+    public function usersBelongTo(){ //Belonger
+        return $this->belongsToMany('App\User')->withTimestamps();
     }
 }

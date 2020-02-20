@@ -12,8 +12,23 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-}); 
+    //return view('welcome');
+
+    $user = \App\User::first();
+
+    $projects = \App\Project::all();
+
+    //$user->projectsBelongTo()->attach($projects);
+    //$user->projectsBelongTo()->attach([1, 3, 4]);
+    //$user->projectsBelongTo()->detach($projects);
+    //$user->projectsBelongTo()->sync($projects);
+    //$user->projectsBelongTo()->syncWithoutDetaching([1, 3, 4]);
+    //$user = \App\User::find(1)->projectsBelongTo()->get();
+    //\App\Project::find(1)->usersBelongTo()->get();
+
+    echo \App\User::find(13)->projectsCreated()->get();
+    //dd($user);
+});
 
 Auth::routes();
 

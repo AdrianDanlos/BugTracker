@@ -21,7 +21,7 @@ class CreateIssuesTable extends Migration
             $table->string('status');//to-do,in-progress,done,review
             $table->string('priority'); //low, medium, high
             $table->unsignedBigInteger('project_id');
-            $table->unsignedBigInteger('creator_id');
+            $table->unsignedBigInteger('user_id'); //Creator
             $table->unsignedBigInteger('assigned_to_id');
             $table->timestamps();
         });
