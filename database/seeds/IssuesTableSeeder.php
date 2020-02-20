@@ -15,7 +15,7 @@ class IssuesTableSeeder extends Seeder
                 'type' => $faker->randomElement(['bug', 'improvement', 'new feature']),
                 'status' => $faker->randomElement(['to-do', 'in-progress', 'done', 'review']),
                 'priority' => $faker->randomElement(['low', 'medium', 'high']),
-                'user_id' => $faker->numberBetween($min = 1, $max = 50), //Make a real Select to get ids
+                'creator_id' => $faker->numberBetween($min = 1, $max = 50), //Make a real Select to get ids
                 'project_id' => $faker->numberBetween($min = 1, $max = 50), //Make a real Select to get ids
                 'assigned_to_id' => $faker->numberBetween($min = 1, $max = 50), //Make a real Select to get ids
             ]);

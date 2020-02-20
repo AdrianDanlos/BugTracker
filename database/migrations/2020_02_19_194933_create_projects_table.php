@@ -18,7 +18,7 @@ class CreateProjectsTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->unsignedBigInteger('group_id');
-            $table->unsignedBigInteger('user_id'); //Creator
+            $table->unsignedBigInteger('creator_id');
             $table->timestamps();
         });
     }

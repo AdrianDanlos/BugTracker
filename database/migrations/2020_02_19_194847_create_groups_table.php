@@ -18,7 +18,7 @@ class CreateGroupsTable extends Migration
             $table->string('name')->unique();
             $table->string('description');
             $table->string('logo_url');
-            $table->unsignedBigInteger('user_id'); //Creator
+            $table->unsignedBigInteger('creator_id');
             $table->timestamps();
         });
     }

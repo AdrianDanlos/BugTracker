@@ -14,7 +14,7 @@ class GroupsTableSeeder extends Seeder
             DB::table('groups')->insert([
                 'name' => $faker->companyName,
                 'description' => $faker->realText($maxNbChars = 200),
-                'user_id' => $faker->numberBetween($min = 1, $max = 50), //Make a real Select to get ids
+                'creator_id' => $faker->numberBetween($min = 1, $max = 50), //Make a real Select to get ids
                 'logo_url' => $faker->imageUrl($width = 640, $height = 480, ['cats'])
             ]);
         }

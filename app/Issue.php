@@ -18,7 +18,11 @@ class Issue extends Model
         return $this->hasMany('App\Comment');
     }
 
-    public function user(){
+    public function userCreator(){
+        return $this->belongsTo('App\User');
+    }
+
+    public function userBelongTo(){
         return $this->belongsTo('App\User');
     }
 }

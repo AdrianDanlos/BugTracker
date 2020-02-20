@@ -10,7 +10,7 @@ class Group extends Model
         return $this->hasMany('App\Project');
     }
 
-    public function userCreator(){ //Creator
+    public function userCreator(){
         return $this->belongsTo('App\User');
     }
 

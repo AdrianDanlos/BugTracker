@@ -1,0 +1,20 @@
+https://www.youtube.com/watch?v=f7quw05phxs
+https://www.youtube.com/watch?v=bjF7NE_xYMk
+
+MANY TO MANY RELATIONS
+
+	1. Create a new migration that will be the resulting table from the N-M relationship between the two entities (We don't need a model or a controller for this pivot table)
+	2. Create the belongsToMany relations in the model of the two entities
+	3. Ways to add and delete values from pivot tables
+
+	    $user = \App\User::first();
+	    $projects = \App\Project::all();
+
+        $user->projectsBelongTo()->attach($projects); //Adding $projects. Posibility of duplicating rows.
+        $user->projectsBelongTo()->detach($projects); //Deleting $projects
+        $user->projectsBelongTo()->sync($projects); //Substitute all user projects for $projects array
+        $user->projectsBelongTo()->syncWithoutDetaching($projects); //Add only the new projects (those that are not already inserted). This avoids duplicates.
+
+        $userProjects = User::first()->projectsBelongTo()->get();
+
+    4. Data can be accessed from user (projects of that user) or from projects (users of that project)

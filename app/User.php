@@ -37,19 +37,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function groupsCreated(){ //Creator
-        return $this->hasMany('App\Group');
+    public function groupsCreated(){
+        return $this->hasMany('App\Group','creator_id');
     }
 
-    public function groupsBelongTo(){ //Belonger
+    public function groupsBelongTo(){
         return $this->belongsToMany('App\Group');
     }
 
-    public function projectsCreated(){ //Creator
-        return $this->hasMany('App\Project');
+    public function projectsCreated(){
+        return $this->hasMany('App\Project', 'creator_id');
     }
 
-    public function projectsBelongTo(){ //Belonger
+    public function projectsBelongTo(){
         return $this->belongsToMany('App\Project')->withTimestamps();
     }
 
@@ -57,7 +57,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Comment');
     }
 
-    public function issues(){
-        return $this->hasMany('App\Issues');
+    public function issuesCreated(){
+        return $this->hasMany('App\Issues', 'creator_id');
+    }
+
+    public function issuesAssignedTo(){
+        return $this->hasMany('App\Issues', 'assigned_to_id');
     }
 }
