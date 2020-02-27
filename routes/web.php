@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/vue', function () {
+    return view('landing-prueba');
+});
+
 //User
 Route::get('/user/{id}', 'UserController@show')->name('user.show');
 Route::get('/user/{id}/edit', 'UserController@edit')->name('user.edit');
